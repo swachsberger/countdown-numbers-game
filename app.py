@@ -81,7 +81,7 @@ if roll:
 
     # Inject sound: unique nonce forces Streamlit to re-render (and re-execute) each roll
     nonce = random.random()
-    components.html(f"""<!-- {nonce} -->
+    components.html(f"<!-- {nonce} -->" + """
     <script>
     (function() {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
