@@ -79,8 +79,9 @@ if roll:
     final1 = random.randint(1, 6)
     final2 = random.randint(1, 6)
 
-    # Inject sound: Web Audio API clicks timed to match the animation ease-out
-    components.html("""
+    # Inject sound: unique nonce forces Streamlit to re-render (and re-execute) each roll
+    nonce = random.random()
+    components.html(f"""<!-- {nonce} -->
     <script>
     (function() {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
